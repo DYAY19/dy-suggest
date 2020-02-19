@@ -48,10 +48,20 @@ client.on('ready', () => {
 
 //code
 
+client.on('ready',async () => {
+console.log("Starting..");
+let g = client.guilds.get("605544586768547850"); // id server
+let c = g.channels.get("659191097817301023");// id channel
+if(c.type === 'voice') {
+c.join();
+setInterval(() => {
+if(g.me.voiceChannel && g.me.voiceChannelID !== c.id || !g.me.voiceChannel) c.join();
+}, 1);
+} else {
+console.log('Failed To Join: \n The Channel Type isn "Listening."')
+}
+});
 
-const GUILDID = '605544586768547850'; // اي دي السيرفر  
-const CHANNELID = '659191097817301023'; // اي دي الروم
-const ownerID = ["516473846983950336"]; // ايدي ادارة البوت او صاحب البوت ..
 
 
 client.commands = new Discord.Collection();
@@ -652,10 +662,6 @@ client.on('message', message => {
 > Ping : سرعة استجابة البوت 
 > repeat : تكرار الاغنية 
 > Leave : الخروج من الروم الصوتي  
-
-K-MUSIC BOT - CODE BY : KAHRBAA
-- https://www.youtube.com/channel/UCb0HLm_jF-k72G2DN4yX1sA
-- https://discord.gg/gGthrQq
 **`
   if(message.content === prefix + 'help') {
             message.delete(1000)
@@ -665,20 +671,6 @@ K-MUSIC BOT - CODE BY : KAHRBAA
 }
 });
 
-client.on('message', message => {
-      if (!ownerID.includes(message.author.id)) return;
-  var helplist = `**:gear: | اوامر الادارة:  
-> setStreaming : لجعل وضع البوت ستريمنق
-> setWatching : لجعل وضع البوت واتشنق
-> setListening : لجعل وضع البوت ليستننق
-> setName :  لتغيير أسم البوت
-> setAvatar : لتغيير صورة البوت
-> setStatus : لتغيير حالة البوت
-**`
-  if(message.content === prefix + 'help') {
-    message.author.send(helplist);
-  }
-  });
 
 
 
