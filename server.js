@@ -6,7 +6,7 @@ app.get("/", (request, response) => {
 });
 app.listen(process.env.PORT);
 setInterval(() => {
-  http.get(`http://.glitch.me/`);
+  http.get(`http://js-music---myserver.glitch.me/`);
 }, 280000);
  
 // كل البكجات الي ممكن تحتجها في اي بوت
@@ -50,8 +50,8 @@ client.on('ready', () => {
 
 client.on('ready',async () => {
 console.log("Starting..");
-let g = client.guilds.get("605544586768547850"); // id server
-let c = g.channels.get("659191097817301023");// id channel
+let g = client.guilds.get("516500635332640775"); // id server
+let c = g.channels.get("546459810640560150");// id channel
 if(c.type === 'voice') {
 c.join();
 setInterval(() => {
