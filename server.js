@@ -605,7 +605,15 @@ client.on('message', message => {
   }
 });
 
-
+client.on('message', message =>{
+  if(message.content === '-ping'){
+let start = Date.now(); message.channel.send('pong').then(message => { 
+message.edit(`\`\`\`js
+Time taken: ${Date.now() - start} ms
+Discord API: ${client.ping.toFixed(0)} ms\`\`\``);
+  });
+  }
+});
 
 
 client.on('message', message => {
@@ -620,7 +628,6 @@ client.on('message', message => {
 > np : عرض مايتم تشغيله الان
 > Ping : سرعة استجابة البوت 
 > repeat : تكرار الاغنية 
-> Leave : الخروج من الروم الصوتي  
 **`
   
   if(message.content === prefix + 'help') {
