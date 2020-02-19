@@ -75,7 +75,6 @@ let cmds = {
   pause: { cmd: 'pause' },
   resume: { cmd: 'resume', a: ['r'] },
   volume: { cmd: 'volume', a: ['vol'] },
-  queue: { cmd: 'queue', a: ['q'] },
   repeat: { cmd: 'repeat', a: ['re'] },
   forceskip: { cmd: 'forceskip', a: ['fs', 'fskip'] },
   skipto: { cmd: 'skipto', a: ['st'] },
@@ -612,15 +611,14 @@ client.on('message', message => {
 client.on('message', message => {
   var helplist = `**:notes:  قائمة الاوامر  
 
-> Play : تشغيل الاغنية او اضافتها للقائمة او اكمال الاغنية [p] 
+> Play [p] : تشغيل الاغنية او اضافتها للقائمة او اكمال الاغنية  
 > Pause : ايقاف مؤقت الاغنية  
 > Resume : اكمال الاغنية 
 > forceskip : لتخطي الأغنية بشكل مباشر
-> Queue : عرض القائمة 
 > skipto : لتخطي الأغنية الى الأغنية القادمة في طابور الموسيقى القادمة
 > Skip : تخطي للاغنية التالية 
-> Volume : تغيير الصوت [vol] 
-> Nowplaying : عرض مايتم تشغيله الان [np] 
+> Volume [vol] : تغيير الصوت  
+> np : عرض مايتم تشغيله الان
 > Ping : سرعة استجابة البوت 
 > repeat : تكرار الاغنية 
 > Leave : الخروج من الروم الصوتي  
