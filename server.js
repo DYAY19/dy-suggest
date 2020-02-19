@@ -609,50 +609,12 @@ client.on('message', message => {
 
 
 
-
-
 client.on('message', message => {
-
-
-
-    let argresult = message.content.split(` `).slice(1).join(' ');
-    if (message.content.startsWith(prefix + 'setStreaming')) {
-      if (!ownerID.includes(message.author.id)) return;
-      message.delete();
-      client.user.setGame(argresult, 'https://twitch.tv/Kahrbaa');
-
-    } else if(message.content.startsWith(prefix + 'setWatching')) {
-        client.user.setActivity(argresult,{type: 'WATCHING'});
-
-      } else if(message.content.startsWith(prefix + 'setListening')) {
-        client.user.setActivity(argresult,{type: 'LISTENING'});
-
-      } else if(message.content.startsWith(prefix + 'setPlaying')) {
-        client.user.setActivity(argresult,{type: 'PLAYING'});
-
-      } else if(message.content.startsWith(prefix + 'setName')) {
-        client.user.setUsername(argresult);
-
-      } else if(message.content.startsWith(prefix + 'setAvatar')) {
-        client.user.setAvatar(argresult);
-
-
-      } else if(message.content.startsWith(prefix + 'setStatus')) {
-        if(!argresult) return message.channel.send('`online`, `DND(Do not Distrub),` `idle`, `invisible(Offline)` :notes: أختر أحد الحالات');
-		client.user.setStatus(argresult);
-
-
-    }
-
-  });
-
-client.on('message', message => {
-  var helplist = `**:notes:  قائمة الاوامر:  
+  var helplist = `**:notes:  قائمة الاوامر  
 
 > Play : تشغيل الاغنية او اضافتها للقائمة او اكمال الاغنية [p] 
 > Pause : ايقاف مؤقت الاغنية  
 > Resume : اكمال الاغنية 
-> stop : لأيقاف الأغنية وخروج البوت من الروم
 > forceskip : لتخطي الأغنية بشكل مباشر
 > Queue : عرض القائمة 
 > skipto : لتخطي الأغنية الى الأغنية القادمة في طابور الموسيقى القادمة
@@ -663,6 +625,7 @@ client.on('message', message => {
 > repeat : تكرار الاغنية 
 > Leave : الخروج من الروم الصوتي  
 **`
+  
   if(message.content === prefix + 'help') {
             message.delete(1000)
     let e = '** جاري الارســال .. :envelope_with_arrow: **'
