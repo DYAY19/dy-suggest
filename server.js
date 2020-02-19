@@ -606,7 +606,7 @@ client.on('message', message => {
 });
 
 client.on('message', message =>{
-  if(message.content === '-ping'){
+  if(message.content === prefix + 'ping'){
 let start = Date.now(); message.channel.send('pong').then(message => { 
 message.edit(`\`\`\`js
 Time taken: ${Date.now() - start} ms
