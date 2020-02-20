@@ -6,13 +6,13 @@ app.get("/", (request, response) => {
 });
 app.listen(process.env.PORT);
 setInterval(() => {
-  http.get(`http://js-music---myserver.glitch.me/`);
+  http.get(`http://.glitch.me/`);
 }, 280000);
  
 // كل البكجات الي ممكن تحتجها في اي بوت
 const { Client, RichEmbed } = require("discord.js");
 var { Util } = require('discord.js');
-const {YT_API_KEY, prefix, devs} = require('./config')
+const {prefix} = require('./config')
 const client = new Client({ disableEveryone: true})
 const ytdl = require("ytdl-core");
 const canvas = require("canvas");
@@ -50,8 +50,8 @@ client.on('ready', () => {
 
 client.on('ready',async () => {
 console.log("Starting..");
-let g = client.guilds.get("516500635332640775"); // id server
-let c = g.channels.get("546459810640560150");// id channel
+let g = client.guilds.get(""); // id server
+let c = g.channels.get("");// id channel
 if(c.type === 'voice') {
 c.join();
 setInterval(() => {
@@ -72,11 +72,10 @@ let cmds = {
   play: { cmd: 'play', a: ['p'] },
   skip: { cmd: 'skip', a: ['s'] },
   stop: { cmd: 'stop' },
-  pause: { cmd: 'pause' },
+  pause: { cmd: 'pause' }, 
   resume: { cmd: 'resume', a: ['r'] },
   volume: { cmd: 'volume', a: ['vol'] },
   repeat: { cmd: 'repeat', a: ['re'] },
-  forceskip: { cmd: 'forceskip', a: ['fs', 'fskip'] },
   skipto: { cmd: 'skipto', a: ['st'] },
   nowplaying: { cmd: 'Nowplaying', a: ['np'] }
 };
@@ -627,7 +626,7 @@ client.on('message', message => {
 > Volume [vol] : تغيير الصوت  
 > np : عرض مايتم تشغيله الان
 > Ping : سرعة استجابة البوت 
-> repeat : تكرار الاغنية 
+> repeat [re] : تكرار الاغنية 
 **`
   
   if(message.content === prefix + 'help') {
