@@ -36,6 +36,7 @@ dependencies:
   hypixel-api: 1.1.0
   jimp: 0.9.3
   math-expression-evaluator: 1.2.22
+  merge-descriptors: 1.0.1
   message: 0.0.1
   moment: 2.24.0
   ms: 2.1.2
@@ -6933,6 +6934,7 @@ specifiers:
   hypixel-api: 1.1.0
   jimp: ^0.9.1
   math-expression-evaluator: ^1.2.17
+  merge-descriptors: ^1.0.1
   message: 0.0.1
   moment: ^2.24.0
   ms: ^2.1.2
