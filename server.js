@@ -6,7 +6,7 @@ app.get("/", (request, response) => {
 });
 app.listen(process.env.PORT);
 setInterval(() => {
-  http.get(`http://.glitch.me/`);
+  http.get(`http://musicjs-myser.glitch.me/`);
 }, 280000);
  
 // كل البكجات الي ممكن تحتجها في اي بوت
@@ -32,10 +32,10 @@ const { get } = require('snekfetch');
 const guild = require('guild');
 const dateFormat = require('dateformat');//npm i dateformat
 const YouTube = require('simple-youtube-api');
-const youtube = new YouTube('AIzaSyAMXTnuoK2kjq6HGkhD079kh5MCOoSxD4Q');
+const youtube = new YouTube('AIzaSyCrFAvlGfIWJgzZDvnG4XgZfbr2erTnvpY');
 const hastebins = require('hastebin-gen');
 const getYoutubeID = require('get-youtube-id');
-const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4";
+const yt_api_key = "AIzaSyCrFAvlGfIWJgzZDvnG4XgZfbr2erTnvpY";
 const pretty = require("pretty-ms");
 client.login(process.env.BOT_TOKEN);
 const queue = new Map();
@@ -50,8 +50,8 @@ client.on('ready', () => {
 
 client.on('ready',async () => {
 console.log("Starting..");
-let g = client.guilds.get(""); // id server
-let c = g.channels.get("");// id channel
+let g = client.guilds.get("687635938792177683"); // id server
+let c = g.channels.get("687705241885343783");// id channel
 if(c.type === 'voice') {
 c.join();
 setInterval(() => {
