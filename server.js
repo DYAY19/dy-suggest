@@ -65,18 +65,19 @@ client.on('message', message => {
 
 	let embed = new Discord.RichEmbed()
     .setAuthor(`${message.author.tag}`, message.author.avatarURL)
-	.setColor('#000000')
-	.setFooter("بوت القرآن | صدقة جارية للجميع", 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiqVT5PZAfcy8qZxlr3SQv3mmCw9zPiu2YBLIQ4bBePL2jLm7h')
+	.setColor('DARK_RED')
+	.setFooter("بوت القرآن | صدقة جارية للجميع", 'https://cdn.discordapp.com/avatars/759503915875696681/02e136b0b383b26635c9c1c5ac6a80fa.png?size=1024')
       .setDescription(` 
-     🕋 اوامر بوت القرآن الكريم 🕋
-	 
-🇦 القرآن كاملاً ماهر المعيقلي
-🇧 سورة البقرة كاملة للشيخ مشاري العفاسي
-🇨 سورة الكهف كاملة بصوت مشارى بن راشد العفاسي
-⏹ لإيقاف القرآن الكريم
-🇩 القرآن كاملاً عبدالباسط عبدالصمد
-🇪 القرآن كاملاً ياسر الدوسري
-🇫 سورة الواقعه بصوت الشيخ مشاري بن راشد العفاسي`)
+     **اومر بوت القرآن الكريم **🕌
+
+القرآن كاملاً ماهر المعيقلي 🇦
+سورة البقرة كاملة للشيخ مشاري العفاسي 🇧
+سورة الكهف كاملة بصوت مشارى بن راشد العفاسي 🇨
+لإيقاف القرآن الكريم ⏹️
+القرآن كاملاً عبدالباسط عبدالصمد 🇩
+القرآن كاملاً ياسر الدوسري 🇪
+ سورة الواقعه بصوت الشيخ مشاري بن راشد العفاسي 🇫
+`)
 	
 	message.channel.sendEmbed(embed).then(msg => {
 			msg.react('🇦')
@@ -95,6 +96,7 @@ client.on('message', message => {
 	let filter5 = (reaction, user) => reaction.emoji.name === '🇩' && user.id === message.author.id;
 	let filter6 = (reaction, user) => reaction.emoji.name === '🇪' && user.id === message.author.id;
 	let filter7 = (reaction, user) => reaction.emoji.name === '🇫' && user.id === message.author.id;
+	let filter7 = (reaction, user) => reaction.emoji.name === '' && user.id === message.author.id;
 
 // Collectors
 	let collector1 = msg.createReactionCollector(filter1, { time: 120000 });
@@ -104,6 +106,7 @@ client.on('message', message => {
 	let collector5 = msg.createReactionCollector(filter5, { time: 120000 });
 	let collector6 = msg.createReactionCollector(filter6, { time: 120000 });
 	let collector7 = msg.createReactionCollector(filter7, { time: 120000 });
+	let collector7 = msg.createReactionCollector(filter8, { time: 120000 });
 	
 // Events
 collector1.on('collect', r => {
@@ -223,6 +226,27 @@ collector7.on('collect', r => {
 })
 }
 });
+collector8.on('collect', r => {
+    voiceChannel.join()/// </>~M̲e Ȼodes ᶜ
+      .then(connnection => {
+        const stream = ytdl("https://www.youtube.com/watch?v=LTRcg-gR78o", { filter: 'audioonly' });
+        const dispatcher = connnection.playStream(stream);
+        dispatcher.on('end', () => voiceChannel.leave());
+		collector1.stop();
+		collector2.stop();/// </>~M̲e Ȼodes ᶜ
+		collector3.stop();/// </>~M̲e Ȼodes ᶜ
+		collector4.stop();/// </>~M̲e Ȼodes ᶜ
+		collector5.stop();
+		collector6.stop();/// </>~M̲e Ȼodes ᶜ
+		collector7.stop();/// </>~M̲e Ȼodes ᶜ
+		embed.setDescription(`<@${message.author.id}> **تم تشغيل القرآن الكريم**`);
+		msg.edit(embed).then(msg.delete(5000));
+      });
+});
+})
+}
+});
+
 
 client.on('message', message => { 
 if(message.content === prefix + 'مصحف' || message.content === prefix + 'ms7f') {
