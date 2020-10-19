@@ -53,7 +53,7 @@ client.on('ready', () => {
     console.log(`Iam Ready`);
     console.log(`Guilds: ${client.guilds.size}`);
     console.log(`Users: ${client.users.size}`);
-    client.user.setActivity(`Type ${prefix}help`,{type: 'Playing'}); ///التعديل علي البلاينج
+    client.user.setActivity(`Type ${prefix}quran │ ${prefix}ms7f`,{type: 'Playing'}); ///التعديل علي البلاينج
 });
 
 
@@ -305,14 +305,3 @@ if(message.content === prefix + 'مصحف' || message.content === prefix + 'ms7f
 
 
 ///////////////////////////Shuruhatik
-if(message.content === prefix + 'stop' || message.content === prefix + 'توقف') {
-		collector1.stop();
-		collector2.stop();
-		collector3.stop();////////////////Shuruhatik
-		collector4.stop();////////////////Shuruhatik
-		collector5.stop();/////////////////Shuruhatik
-		collector6.stop();////////////////Shuruhatik
-		collector7.stop();
-		embed.setDescription(`<@${message.author.id}> **برجاء انتظار إيقاف القرآن الكريم**`);
-    embed.setImage('https://i.stack.imgur.com/hzk6C.gif');
-		msg.edit(embed).then(msg.delete(5000));
