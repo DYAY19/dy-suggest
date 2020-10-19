@@ -168,7 +168,8 @@ collector4.on('collect', r => {
 		collector6.stop();////////////////Shuruhatik
 		collector7.stop();
 		embed.setDescription(`<@${message.author.id}> **تم إيقاف القرآن الكريم**`);
-		msg.edit(embed).then(msg.delete(5000));
+    embed.setImage('https://images-ext-1.discordapp.net/external/DKwxPIl5d21-zSacviEcG0xkfHhjmbbON_kSD9-C5vw/https/miro.medium.com/max/1600/1%2ACsJ05WEGfunYMLGfsT2sXA.gif?width=600&height=213');
+		msg.edit(embed).then(msg.delete(10000));
 });
 collector5.on('collect', r => {
     voiceChannel.join()
@@ -293,9 +294,9 @@ if(message.content === prefix + 'مصحف' || message.content === prefix + 'ms7f
 			})
 			cancel.on('collect', r => {
 				embed.setDescription(`**سوف يتم إغلاق القائمة**`);///////////Shuruhatik
-				embed.setImage('https://pa1.narvii.com/6578/8cef1ca84a77a65f8751c66d52e6bd825e671fee_hq.gif');
-				embed.setFooter(`Menu will close after 3sec`, 'https://cdn.discordapp.com/avatars/439427357175185408/b484f58b385cd3da5799522c52111ad4.jpg?size=128');
-				msg.edit(embed).then(msg.delete(3000));///////////////Shuruhatik
+				embed.setImage('https://images-ext-2.discordapp.net/external/6UeOUaP5EcMVFJbYNsLb__uV5Ph8qWY3xP5qi1yPEn0/https/pa1.narvii.com/6578/8cef1ca84a77a65f8751c66d52e6bd825e671fee_hq.gif?width=260&height=188');
+				embed.setFooter(`Menu will close after 10sec`, 'https://cdn.discordapp.com/avatars/439427357175185408/b484f58b385cd3da5799522c52111ad4.jpg?size=128');
+				msg.edit(embed).then(msg.delete(9900));///////////////Shuruhatik
 				})
 			})
 		})
