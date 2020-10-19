@@ -1,14 +1,14 @@
 {
-  "name": "kahrbaa",
+  "name": "Shuruhatik",
   "version": "1.6.0",
-  "description": "KahrbaaMUS",
+  "description": "Quran Bot by Shuruhatik",
   "main": "server.js",
-  "author": "Kahrbaa",
+  "author": "Shuruhatik",
   "license": "MIT",
   "bugs": {
-    "url": "https://discord.gg/9gbXRcT"
+    "url": "https://www.youtube.com/channel/UCqzABaHjw7lytt6pQkB9LQw?view_as=subscriber"
   },
-  "homepage": "https://discord.gg/9gbXRcT",
+  "homepage": "https://www.youtube.com/channel/UCqzABaHjw7lytt6pQkB9LQw?view_as=subscriber",
   "dependencies": {
     "anti-spam": "^0.2.7",
     "array-sort": "^1.0.0",
@@ -100,7 +100,7 @@
     "node": "10.x"
   },
   "repository": {
-    "url": "https://discord.gg/9gbXRcT"
+    "url": "https://www.youtube.com/channel/UCqzABaHjw7lytt6pQkB9LQw?view_as=subscriber"
   },
   "scripts": {
     "start": "node server.js"

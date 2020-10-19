@@ -6,7 +6,7 @@ app.get("/", (request, response) => {
 });
 app.listen(process.env.PORT);
 setInterval(() => {
-  http.get(`http://.glitch.me/`);
+  http.get(`http://.glitch.me/`);/////////////////لازم تحت اسم بروجكت حقك مهم
 }, 280000);
  
 // كل البكجات الي ممكن تحتجها في اي بوت
@@ -305,3 +305,14 @@ if(message.content === prefix + 'مصحف' || message.content === prefix + 'ms7f
 
 
 ///////////////////////////Shuruhatik
+if(message.content === prefix + 'stop' || message.content === prefix + 'توقف') {
+		collector1.stop();
+		collector2.stop();
+		collector3.stop();////////////////Shuruhatik
+		collector4.stop();////////////////Shuruhatik
+		collector5.stop();/////////////////Shuruhatik
+		collector6.stop();////////////////Shuruhatik
+		collector7.stop();
+		embed.setDescription(`<@${message.author.id}> **برجاء انتظار إيقاف القرآن الكريم**`);
+    embed.setImage('https://i.stack.imgur.com/hzk6C.gif');
+		msg.edit(embed).then(msg.delete(5000));
