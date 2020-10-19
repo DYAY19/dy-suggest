@@ -96,7 +96,6 @@ client.on('message', message => {
 	let filter5 = (reaction, user) => reaction.emoji.name === '🇩' && user.id === message.author.id;
 	let filter6 = (reaction, user) => reaction.emoji.name === '🇪' && user.id === message.author.id;
 	let filter7 = (reaction, user) => reaction.emoji.name === '🇫' && user.id === message.author.id;
-	let filter7 = (reaction, user) => reaction.emoji.name === '' && user.id === message.author.id;
 
 // Collectors
 	let collector1 = msg.createReactionCollector(filter1, { time: 120000 });
@@ -106,7 +105,6 @@ client.on('message', message => {
 	let collector5 = msg.createReactionCollector(filter5, { time: 120000 });
 	let collector6 = msg.createReactionCollector(filter6, { time: 120000 });
 	let collector7 = msg.createReactionCollector(filter7, { time: 120000 });
-	let collector7 = msg.createReactionCollector(filter8, { time: 120000 });
 	
 // Events
 collector1.on('collect', r => {
@@ -226,27 +224,6 @@ collector7.on('collect', r => {
 })
 }
 });
-collector8.on('collect', r => {
-    voiceChannel.join()/// </>~M̲e Ȼodes ᶜ
-      .then(connnection => {
-        const stream = ytdl("https://www.youtube.com/watch?v=LTRcg-gR78o", { filter: 'audioonly' });
-        const dispatcher = connnection.playStream(stream);
-        dispatcher.on('end', () => voiceChannel.leave());
-		collector1.stop();
-		collector2.stop();/// </>~M̲e Ȼodes ᶜ
-		collector3.stop();/// </>~M̲e Ȼodes ᶜ
-		collector4.stop();/// </>~M̲e Ȼodes ᶜ
-		collector5.stop();
-		collector6.stop();/// </>~M̲e Ȼodes ᶜ
-		collector7.stop();/// </>~M̲e Ȼodes ᶜ
-		embed.setDescription(`<@${message.author.id}> **تم تشغيل القرآن الكريم**`);
-		msg.edit(embed).then(msg.delete(5000));
-      });
-});
-})
-}
-});
-
 
 client.on('message', message => { 
 if(message.content === prefix + 'مصحف' || message.content === prefix + 'ms7f') {
@@ -326,4 +303,4 @@ if(message.content === prefix + 'مصحف' || message.content === prefix + 'ms7f
 	});
 
 
-
+///////////////////////////test
