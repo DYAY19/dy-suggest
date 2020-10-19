@@ -58,7 +58,7 @@ client.on('ready', () => {
 
 
 client.on('message', message => {
-	if(message.content.startsWith(prefix + 'قران')) {
+	if(message.content === prefix + 'quran' || message.content === prefix + 'قران') {
 		message.delete();
     const voiceChannel = message.member.voiceChannel;
     if (!voiceChannel) return message.reply(`**يحب ان تكون في روم صوتي**`);
@@ -167,9 +167,9 @@ collector4.on('collect', r => {
 		collector5.stop();/////////////////Shuruhatik
 		collector6.stop();////////////////Shuruhatik
 		collector7.stop();
-		embed.setDescription(`<@${message.author.id}> **تم إيقاف القرآن الكريم**`);
-    embed.setImage('https://images-ext-1.discordapp.net/external/DKwxPIl5d21-zSacviEcG0xkfHhjmbbON_kSD9-C5vw/https/miro.medium.com/max/1600/1%2ACsJ05WEGfunYMLGfsT2sXA.gif?width=600&height=213');
-		msg.edit(embed).then(msg.delete(10000));
+		embed.setDescription(`<@${message.author.id}> **برجاء انتظار إيقاف القرآن الكريم**`);
+    embed.setImage('https://i.stack.imgur.com/hzk6C.gif');
+		msg.edit(embed).then(msg.delete(2000));
 });
 collector5.on('collect', r => {
     voiceChannel.join()
