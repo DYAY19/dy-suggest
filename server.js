@@ -46,7 +46,11 @@ client.on('ready', () => {
 });
 
 
-///////////////Shuruhatik
+/*
+
+- [       All Copy Right Reserved For: Shuruhatik  in YT     ] -
+
+*/
 
 
 client.on('ready', () => {
@@ -304,4 +308,9 @@ if(message.content === prefix + 'مصحف' || message.content === prefix + 'ms7f
 	});
 
 
-///////////////////////////Shuruhatik
+/*
+
+فيديو شرح طريقة تشغيل البوت 
+https://youtu.be/6u53xRwGc_k
+
+*/
