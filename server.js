@@ -62,26 +62,25 @@ client.on('ready', () => {
 
 
 client.on('message', message => {
-	if(message.content === prefix + 'quran' || message.content === prefix + 'قران') {
+if(message.content === prefix + 'quran' || message.content === prefix + 'قران') {
 		message.delete();
     const voiceChannel = message.member.voiceChannel;
     if (!voiceChannel) return message.reply(`**يحب ان تكون في روم صوتي**`);
 
 	let embed = new Discord.RichEmbed()
     .setAuthor(`${message.author.tag}`, message.author.avatarURL)
-	.setColor('DARK_RED')
-	.setFooter("بوت القرآن | صدقة جارية للجميع", 'https://cdn.discordapp.com/avatars/759503915875696681/02e136b0b383b26635c9c1c5ac6a80fa.png?size=1024')
+	.setColor('#000000')
+	.setFooter("بوت القرآن | صدقة جارية للجميع", 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiqVT5PZAfcy8qZxlr3SQv3mmCw9zPiu2YBLIQ4bBePL2jLm7h')
       .setDescription(` 
-     **اومر بوت القرآن الكريم **🕌
-
-القرآن كاملاً ماهر المعيقلي 🇦
-سورة البقرة كاملة للشيخ مشاري العفاسي 🇧
-سورة الكهف كاملة بصوت مشارى بن راشد العفاسي 🇨
-لإيقاف القرآن الكريم ⏹️
-القرآن كاملاً عبدالباسط عبدالصمد 🇩
-القرآن كاملاً ياسر الدوسري 🇪
- سورة الواقعه بصوت الشيخ مشاري بن راشد العفاسي 🇫
-`)
+     🕋 اوامر بوت القرآن الكريم 🕋
+	 
+🇦 القرآن كاملاً ماهر المعيقلي
+🇧 سورة البقرة كاملة للشيخ مشاري العفاسي
+🇨 سورة الكهف كاملة بصوت مشارى بن راشد العفاسي
+⏹ لإيقاف القرآن الكريم
+🇩 القرآن كاملاً عبدالباسط عبدالصمد
+🇪 القرآن كاملاً ياسر الدوسري
+🇫 سورة الواقعه بصوت الشيخ مشاري بن راشد العفاسي`)
 	
 	message.channel.sendEmbed(embed).then(msg => {
 			msg.react('🇦')
@@ -114,7 +113,7 @@ client.on('message', message => {
 collector1.on('collect', r => {
     voiceChannel.join()
       .then(connnection => {
-        const stream = ytdl("https://www.youtube.com/watch?v=M6z0Qql4-qo&t=13s", { filter: 'audioonly' });
+        const stream = ytdl("https://www.youtube.com/watch?v=wwMyn8a_puQ", { filter: 'audioonly' });
         const dispatcher = connnection.playStream(stream);
         dispatcher.on('end', () => voiceChannel.leave());
 		collector1.stop();
@@ -134,13 +133,13 @@ collector2.on('collect', r => {
         const stream = ytdl("https://www.youtube.com/watch?v=qFq5h4wtjaM&t=30s", { filter: 'audioonly' });
         const dispatcher = connnection.playStream(stream);
         dispatcher.on('end', () => voiceChannel.leave());
-		collector1.stop();/////////////////Shuruhatik
+		collector1.stop();//////shuruhatik
 		collector2.stop();
-		collector3.stop();/////////////////Shuruhatik
-		collector4.stop();/////////////////Shuruhatik
+		collector3.stop();//////shuruhatik
+		collector4.stop();/////shuruhatik
 		collector5.stop();
 		collector6.stop();
-		collector7.stop();/////////////////Shuruhatik
+		collector7.stop();//////shuruhatik
 		embed.setDescription(`<@${message.author.id}> **تم تشغيل القرآن الكريم**`);
 		msg.edit(embed).then(msg.delete(5000));
       });
@@ -151,12 +150,12 @@ collector3.on('collect', r => {
         const stream = ytdl("https://www.youtube.com/watch?v=8UWKiKGQmsE", { filter: 'audioonly' });
         const dispatcher = connnection.playStream(stream);
         dispatcher.on('end', () => voiceChannel.leave());
-		collector1.stop();/////////////////Shuruhatik
+		collector1.stop();///////shuruhatik
 		collector2.stop();
 		collector3.stop();
-		collector4.stop();/////////////////Shuruhatik
+		collector4.stop();//////shuruhatik
 		collector5.stop();
-		collector6.stop();////////////////Shuruhatik
+		collector6.stop();//////shuruhatik
 		collector7.stop();
 		embed.setDescription(`<@${message.author.id}> **تم تشغيل القرآن الكريم**`);
 		msg.edit(embed).then(msg.delete(5000));
@@ -166,14 +165,13 @@ collector4.on('collect', r => {
 	if (message.guild.voiceConnection) message.guild.voiceConnection.disconnect();
 		collector1.stop();
 		collector2.stop();
-		collector3.stop();////////////////Shuruhatik
-		collector4.stop();////////////////Shuruhatik
-		collector5.stop();/////////////////Shuruhatik
-		collector6.stop();////////////////Shuruhatik
+		collector3.stop();//////shuruhatik
+		collector4.stop();//////shuruhatik
+		collector5.stop();/////shuruhatik
+		collector6.stop();/////shuruhatik
 		collector7.stop();
-		embed.setDescription(`<@${message.author.id}> **برجاء انتظار إيقاف القرآن الكريم**`);
-    embed.setImage('https://i.stack.imgur.com/hzk6C.gif');
-		msg.edit(embed).then(msg.delete(2000));
+		embed.setDescription(`<@${message.author.id}> **تم إيقاف القرآن الكريم**`);
+		msg.edit(embed).then(msg.delete(5000));
 });
 collector5.on('collect', r => {
     voiceChannel.join()
@@ -182,11 +180,11 @@ collector5.on('collect', r => {
         const dispatcher = connnection.playStream(stream);
         dispatcher.on('end', () => voiceChannel.leave());
 		collector1.stop();
-		collector2.stop();/////////////////Shuruhatik
-		collector3.stop();/////////////////Shuruhatik
+		collector2.stop();/////shuruhatik
+		collector3.stop();//////shuruhatik
 		collector4.stop();
-		collector5.stop();/////////////////Shuruhatik
-		collector6.stop();////////////////Shuruhatik
+		collector5.stop();//////shuruhatik
+		collector6.stop();//////shuruhatik
 		collector7.stop();
 		embed.setDescription(`<@${message.author.id}> **تم تشغيل القرآن الكريم**`);
 		msg.edit(embed).then(msg.delete(5000));
@@ -199,29 +197,29 @@ collector6.on('collect', r => {
         const dispatcher = connnection.playStream(stream);
         dispatcher.on('end', () => voiceChannel.leave());
 		collector1.stop();
-		collector2.stop();////////////////Shuruhatik
-		collector3.stop();/////////////////Shuruhatik
-		collector4.stop();////////////////Shuruhatik
+		collector2.stop();//////shuruhatik
+		collector3.stop();//////shuruhatik
+		collector4.stop();/////shuruhatik
 		collector5.stop();
-		collector6.stop();////////////////Shuruhatik
+		collector6.stop();/////shuruhatik
 		collector7.stop();
 		embed.setDescription(`<@${message.author.id}> **تم تشغيل القرآن الكريم**`);
 		msg.edit(embed).then(msg.delete(5000));
       });
 });
 collector7.on('collect', r => {
-    voiceChannel.join()/////////////////Shuruhatik
+    voiceChannel.join()//////shuruhatik
       .then(connnection => {
         const stream = ytdl("https://www.youtube.com/watch?v=LTRcg-gR78o", { filter: 'audioonly' });
         const dispatcher = connnection.playStream(stream);
         dispatcher.on('end', () => voiceChannel.leave());
 		collector1.stop();
-		collector2.stop();////////////////Shuruhatik
-		collector3.stop();/////////////////Shuruhatik
-		collector4.stop();/////////////////Shuruhatik
+		collector2.stop();/////shuruhatik
+		collector3.stop();//////shuruhatik
+		collector4.stop();//////shuruhatik
 		collector5.stop();
-		collector6.stop();////////////////Shuruhatik
-		collector7.stop();/////////////////Shuruhatik
+		collector6.stop();//////shuruhatik
+		collector7.stop();//////shuruhatik
 		embed.setDescription(`<@${message.author.id}> **تم تشغيل القرآن الكريم**`);
 		msg.edit(embed).then(msg.delete(5000));
       });
@@ -229,6 +227,7 @@ collector7.on('collect', r => {
 })
 }
 });
+
 
 client.on('message', message => { 
 if(message.content === prefix + 'مصحف' || message.content === prefix + 'ms7f') {
@@ -244,13 +243,13 @@ if(message.content === prefix + 'مصحف' || message.content === prefix + 'ms7f
 
 // ${page}
 // ${pages.length}
-	message.channel.sendEmbed(embed).then(msg => {/////////////////Shuruhatik
+	message.channel.sendEmbed(embed).then(msg => {////shuruhatik
 
 		msg.react('⏮').then( r => {
 			msg.react('⬅')
-		.then(() => msg.react('⏹'))////////////////Shuruhatik
-		.then(() => msg.react('➡'))////////////////Shuruhatik
-		.then(() => msg.react('⏭'))////////////////Shuruhatik
+		.then(() => msg.react('⏹'))/////shuruhatik
+		.then(() => msg.react('➡'))/////shuruhatik
+		.then(() => msg.react('⏭'))////shuruhatik
 
 		var backwardsFilter = (reaction, user) => reaction.emoji.name === '⬅' && user.id === message.author.id;
 			var forwardsFilter = (reaction, user) => reaction.emoji.name === '➡' && user.id === message.author.id;
@@ -260,29 +259,29 @@ if(message.content === prefix + 'مصحف' || message.content === prefix + 'ms7f
 
 			var cancelFilter = (reaction, user) => reaction.emoji.name === '⏹' && user.id === message.author.id;
 
-		var backwards = msg.createReactionCollector(backwardsFilter, { time: 0 });////////////////Shuruhatik
-			var forwards = msg.createReactionCollector(forwardsFilter, { time: 0 });////////////////Shuruhatik
+		var backwards = msg.createReactionCollector(backwardsFilter, { time: 0 });/////shuruhatik
+			var forwards = msg.createReactionCollector(forwardsFilter, { time: 0 });/////shuruhatik
 
 		var sbackwards = msg.createReactionCollector(sbackwardsFilter, { time: 0 });
-			var sforwards = msg.createReactionCollector(sforwardsFilter, { time: 0 });/////////////////Shuruhatik
+			var sforwards = msg.createReactionCollector(sforwardsFilter, { time: 0 });/////shuruhatik
 
-			var cancel = msg.createReactionCollector(cancelFilter, { time: 0 });////////////////Shuruhatik
+			var cancel = msg.createReactionCollector(cancelFilter, { time: 0 });/////shuruhatik
 
-			backwards.on('collect', r => {////////////////Shuruhatik
+			backwards.on('collect', r => {/////shuruhatik
 				if (page === 1) return;
 				page--;
-				embed.setImage(pages[page-1]);/////////////////Shuruhatik
+				embed.setImage(pages[page-1]);/////shuruhatik
 				embed.setFooter(`القراآن الكريم | صفحة رقم ${page} من اصل ${pages.length} صفحة`, 'https://cdn.discordapp.com/avatars/439427357175185408/b484f58b385cd3da5799522c52111ad4.jpg?size=128');
 				msg.edit(embed)
 			})
 			forwards.on('collect', r => {
-				if (page === pages.length) return;/////////////////Shuruhatik
+				if (page === pages.length) return;////shuruhatik
 				page++;
-				embed.setImage(pages[page-1]);////////////////Shuruhatik
+				embed.setImage(pages[page-1]);////shuruhatik
 				embed.setFooter(`القراآن الكريم | صفحة رقم ${page} من اصل ${pages.length} صفحة`, 'https://cdn.discordapp.com/avatars/439427357175185408/b484f58b385cd3da5799522c52111ad4.jpg?size=128');
 				msg.edit(embed)
 			})
-			sbackwards.on('collect', r => {////////////////Shuruhatik
+			sbackwards.on('collect', r => {/////shuruhatik
 				if (page === 1) return;
 				page = 1;
 				embed.setImage(pages[page-1]);
@@ -290,23 +289,22 @@ if(message.content === prefix + 'مصحف' || message.content === prefix + 'ms7f
 				msg.edit(embed)
 			})
 			sforwards.on('collect', r => {
-				if (page === pages.length) return;/////////Shuruhatik
-				page = 200; // إذا تبي تكمل ل 600 صفحة غير الرقم للصفحة الي وصلت لها/////////////////Shuruhatik
+				if (page === pages.length) return;//////shuruhatik
+				page = 200; // إذا تبي تكمل ل 600 صفحة غير الرقم للصفحة الي وصلت لها///shuruhatik
 				embed.setImage(pages[page-1]);
 				embed.setFooter(`القراآن الكريم | صفحة رقم ${page} من اصل ${pages.length} صفحة`, 'https://cdn.discordapp.com/avatars/439427357175185408/b484f58b385cd3da5799522c52111ad4.jpg?size=128');
 				msg.edit(embed)
 			})
 			cancel.on('collect', r => {
-				embed.setDescription(`**سوف يتم إغلاق القائمة**`);///////////Shuruhatik
-				embed.setImage('https://images-ext-2.discordapp.net/external/6UeOUaP5EcMVFJbYNsLb__uV5Ph8qWY3xP5qi1yPEn0/https/pa1.narvii.com/6578/8cef1ca84a77a65f8751c66d52e6bd825e671fee_hq.gif?width=260&height=188');
-				embed.setFooter(`Menu will close after 10sec`, 'https://cdn.discordapp.com/avatars/439427357175185408/b484f58b385cd3da5799522c52111ad4.jpg?size=128');
-				msg.edit(embed).then(msg.delete(9900));///////////////Shuruhatik
+				embed.setDescription(`**سوف يتم إغلاق القائمة**`);/// </>~M̲e Ȼodes ᶜ
+				embed.setImage('');
+				embed.setFooter(`Menu will close after 3sec`, 'https://cdn.discordapp.com/avatars/439427357175185408/b484f58b385cd3da5799522c52111ad4.jpg?size=128');
+				msg.edit(embed).then(msg.delete(3000));///shuruhatik
 				})
 			})
 		})
 	}
 	});
-
 
 /*
 
