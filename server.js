@@ -48,17 +48,25 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-              if (!message.channel.guild) return;
-      if(message.content == prefix + "members")
-      var kayan = new Discord.RichEmbed()
-      .setThumbnail(message.author.avatarURL)
-      .setFooter(message.author.username, message.author.avatarURL) 
-      .setTitle('🙆| معلومات الأعضاء')
-      .addBlankField(true)
-      .addField('')
-      message.channel.send(kayan);
-    
-    });
+    if (message.content.startsWith("-bot")) {
+    message.channel.send({
+        embed: new Discord.RichEmbed()
+            .setAuthor(client.user.username,client.user.avatarURL)
+            .setThumbnail(client.user.avatarURL)
+            .setColor('RANDOM')
+            .setTitle('Info Bemo Bot.')
+            .addField('``My Ping``' , [`${Date.now() - message.createdTimestamp}` + 'MS'], true)
+            .addField('``RAM Usage``', `[${(process.memoryUsage().rss / 16900).toFixed()}MB]`, true)
+            .addField('``servers``', [client.guilds.size], true)
+            .addField('``channels``' , `[ ${client.channels.size} ]` , true)
+            .addField('``Users``' ,`[ ${client.users.size} ]` , true)
+            .addField('``My Name``' , `[ ${client.user.tag} ]` , true)
+            .addField('``My ID``' , `[ ${client.user.id} ]` , true)
+                  .addField('``My Prefix``' , `[ # ]` , true)
+                  .addField('``My Language``' , `[ Arabic ]` , true)
+    })
+}
+});
 
 client.on('message', message => {
 if  (message.content.toLowerCase().startsWith(prefix + "corona"))  {
