@@ -4,7 +4,7 @@
   "description": "Quran Bot by Shuruhatik",
   "main": "server.js",
   "author": "Shuruhatik",
-  "license": "MIT",
+  "license": "LICENSE",
   "bugs": {
     "url": "https://www.youtube.com/channel/UCqzABaHjw7lytt6pQkB9LQw?view_as=subscriber"
   },

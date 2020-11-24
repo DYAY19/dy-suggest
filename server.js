@@ -12,7 +12,6 @@ setInterval(() => {
 // كل البكجات الي ممكن تحتجها في اي بوت
 const { Client, RichEmbed } = require("discord.js");
 var { Util } = require('discord.js');
-const {prefix} = require('./config')
 const client = new Client({ disableEveryone: true})
 const ytdl = require("ytdl-core");
 const canvas = require("canvas");
@@ -38,13 +37,14 @@ client.on('ready', () => {
 - [       All Copy Right Reserved For: Shuruhatik  in YT     ] -
 
 */
+const prefix = process.env.PREFIX;
 
 
 client.on('ready', () => {
     console.log(`Iam Ready`);
     console.log(`Guilds: ${client.guilds.size}`);
     console.log(`Users: ${client.users.size}`);
-    client.user.setActivity(`Type `,{type: 'Playing'}); ///التعديل علي البلاينج
+    client.user.setActivity(`Type ${prefix}corona`,{type: 'Playing'}); ///التعديل علي البلاينج
 });
 
 
@@ -59,7 +59,7 @@ const fetch = require("node-fetch");
 fetch(`https://disease.sh/v3/covid-19/countries/${country}`)
   .then(async data => {
   data = await data.json();
-  let corona = new Discord.RichEmbed().setColor("#ff0000")
+  let corona = new Discord.RichEmbed().setColor("RANDOM")
     .setThumbnail(data.countryInfo.flag)
     .setTitle(`إحصائيات كورونا في : ${data.country}`)
     .addField("`اصابات`", [`**${data.cases}**`] , true)
@@ -73,3 +73,8 @@ fetch(`https://disease.sh/v3/covid-19/countries/${country}`)
   message.channel.send(corona);
 });
 };
+/*
+
+- [       All Copy Right Reserved For: Shuruhatik  in YT     ] -
+
+*/
