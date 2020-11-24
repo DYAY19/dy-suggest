@@ -48,22 +48,22 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-    if (message.content.startsWith("-bot")) {
+    if (message.content.startsWith("$help")) {
     message.channel.send({
         embed: new Discord.RichEmbed()
             .setAuthor(client.user.username,client.user.avatarURL)
             .setThumbnail(client.user.avatarURL)
             .setColor('RANDOM')
-            .setTitle('Info Bemo Bot.')
-            .addField('``My Ping``' , [`${Date.now() - message.createdTimestamp}` + 'MS'], true)
-            .addField('``RAM Usage``', `[${(process.memoryUsage().rss / 16900).toFixed()}MB]`, true)
-            .addField('``servers``', [client.guilds.size], true)
-            .addField('``channels``' , `[ ${client.channels.size} ]` , true)
-            .addField('``Users``' ,`[ ${client.users.size} ]` , true)
-            .addField('``My Name``' , `[ ${client.user.tag} ]` , true)
-            .addField('``My ID``' , `[ ${client.user.id} ]` , true)
-                  .addField('``My Prefix``' , `[ # ]` , true)
-                  .addField('``My Language``' , `[ Arabic ]` , true)
+            .setTitle('**فيروس كورونا: ما هو وكيف يمكنني وقاية نفسي منه؟**')
+  .setDescription(`
+**كيف ينتشر فيروس كورونا؟**
+أظهرت البيانات أنه الفيروس المسبب لكوفيد 19 ينتشر من شخص لآخر من خلال المخالطة اللصيقة (ضمن 6 أقدام، أو 2 متر). 
+وينتشر الفيروس عن طريق الرذاذ التنفسي المنطلق عندما يسعل المصاب بالفيروس أو يعطس أو يتحدث. يمكن استنشاق هذا الرذاذ أو دخوله في فم أو أنف شخص قريب.
+يمكن أحيانًا أن ينتشر فيروس كوفيد 19 عند تعرض الشخص لقُطَيْرات صغيرة تبقى عالقة في الهواء لعدة دقائق أو ساعات، ويسمى ذلك الانتقال بالهواء. من غير المعروف حتى الآن مدى شيوع انتشار الفيروس بهذه الطريقة.
+ويمكن أن ينتقل أيضًا إذا لمس الشخص سطحًا عليه الفيروس ثم لَمَسَ فمه أو أنفه أو عينيه، مع أن هذه ليست الطريقة الرئيسية لانتقاله.
+
+
+`)
     })
 }
 });
