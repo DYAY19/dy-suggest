@@ -23,19 +23,6 @@ const botversion = require('./package.json').version;
 const simpleytapi = require('simple-youtube-api')
 const moment = require("moment");
 const fs = require('fs');
-const util = require("util")
-const gif = require("gif-search");
-const opus = require("node-opus");
-const ms = require("ms");
-const jimp = require("jimp");
-const { get } = require('snekfetch');
-const guild = require('guild');
-const dateFormat = require('dateformat');//npm i dateformat
-const YouTube = require('simple-youtube-api');
-const youtube = new YouTube('AIzaSyAMXTnuoK2kjq6HGkhD079kh5MCOoSxD4Q');
-const hastebins = require('hastebin-gen');
-const getYoutubeID = require('get-youtube-id');
-const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4";
 const pretty = require("pretty-ms");
 client.login(process.env.BOT_TOKEN);
 const queue = new Map();
@@ -61,17 +48,18 @@ client.on('ready', () => {
 });
 
 
-
-function corona(country, message) {
-const fetch = require("node-fetch");
+client.on('message', message => {
 if  (message.content.toLowerCase().startsWith(prefix + "corona"))  {
   let country = message.content.toLowerCase().split(" ").slice(1).join(" ");
   corona(country, message);
 };
+});
+function corona(country, message) {
+const fetch = require("node-fetch");
 fetch(`https://disease.sh/v3/covid-19/countries/${country}`)
   .then(async data => {
   data = await data.json();
-  let corona = new Discord.MessageEmbed().setColor("#ff0000")
+  let corona = new Discord.RichEmbed().setColor("#ff0000")
     .setThumbnail(data.countryInfo.flag)
     .setTitle(`إحصائيات كورونا في : ${data.country}`)
     .addField("`اصابات`", [`**${data.cases}**`] , true)
@@ -80,8 +68,8 @@ fetch(`https://disease.sh/v3/covid-19/countries/${country}`)
     .addField("`حالات جديدة`", [`**${data.todayCases}**`] , true)
     .addField("`اموات جديدة`", [`**${data.todayDeaths}**`] , true)
     .addField("`معافي اليوم`", [`**${data.todayRecovered}**`] , true)
-    .addField("`القارة`", [`**${data.continent}**`] , true)
-    .setFooter(`Requested by :${message.author.username}`, message.author.avatarURL());
+    .addField("`قارة`", [`**${data.continent}**`] , true)
+    .setFooter(`Requested by :${message.author.username}`, message.author.avatarURL);
   message.channel.send(corona);
 });
 };
