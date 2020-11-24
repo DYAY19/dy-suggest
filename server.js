@@ -47,6 +47,18 @@ client.on('ready', () => {
     client.user.setActivity(`Type ${prefix}corona`,{type: 'Playing'}); ///التعديل علي البلاينج
 });
 
+client.on('message', message => {
+              if (!message.channel.guild) return;
+      if(message.content == prefix + "members")
+      var kayan = new Discord.RichEmbed()
+      .setThumbnail(message.author.avatarURL)
+      .setFooter(message.author.username, message.author.avatarURL) 
+      .setTitle('🙆| معلومات الأعضاء')
+      .addBlankField(true)
+      .addField('')
+      message.channel.send(kayan);
+    
+    });
 
 client.on('message', message => {
 if  (message.content.toLowerCase().startsWith(prefix + "corona"))  {
