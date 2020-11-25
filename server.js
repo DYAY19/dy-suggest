@@ -49,26 +49,24 @@ client.on('ready', () => {
 
 
 client.on('message', message => { 
-if(message.content === prefix + 'مصحف' || message.content === prefix + 'ms7f') {
+if(message.content === prefix + 'corona' || message.content === prefix + 'كورونا') {
 	var pages = ['http://www.emro.who.int/images/stories/coronavirus/isolate_ar_lar.png?ua=10','http://www.emro.who.int/images/stories/coronavirus/overall_ar_lar.png?ua=1','http://www.emro.who.int/images/stories/coronavirus/foodsafetychoppingboard_ar_lar.png?ua=1','http://www.emro.who.int/images/stories/coronavirus/handwash_ar_lar.png?ua=1','http://www.emro.who.int/images/stories/coronavirus/coronavirus_drugs.png?ua=1']
 	var page = 1;
 
 	message.delete();
 
 	var embed = new Discord.RichEmbed()
-	.setColor('#264d00')
+	.setColor('AQUA')
 	.setFooter(`كيف تحمي نفسك والآخرين من المرض صفحة رقم ${page} من اصل ${pages.length} صفحة`, 'https://cdn.discordapp.com/avatars/439427357175185408/b484f58b385cd3da5799522c52111ad4.jpg?size=128')
 	.setImage(pages[page-1])
 
-// ${page}
-// ${pages.length}
-	message.channel.sendEmbed(embed).then(msg => {/// </>~M̲e Ȼodes ᶜ
+	message.channel.sendEmbed(embed).then(msg => {////shuruhatik
 
 		msg.react('⏮').then( r => {
 			msg.react('⬅')
-		.then(() => msg.react('⏹'))/// </>~M̲e Ȼodes ᶜ
-		.then(() => msg.react('➡'))/// </>~M̲e Ȼodes ᶜ
-		.then(() => msg.react('⏭'))/// </>~M̲e Ȼodes ᶜ
+		.then(() => msg.react('⏹'))///shuruhatik
+		.then(() => msg.react('➡'))////shuruhatik
+		.then(() => msg.react('⏭'))//shuruhatik
 
 		var backwardsFilter = (reaction, user) => reaction.emoji.name === '⬅' && user.id === message.author.id;
 			var forwardsFilter = (reaction, user) => reaction.emoji.name === '➡' && user.id === message.author.id;
@@ -78,47 +76,47 @@ if(message.content === prefix + 'مصحف' || message.content === prefix + 'ms7f
 
 			var cancelFilter = (reaction, user) => reaction.emoji.name === '⏹' && user.id === message.author.id;
 
-		var backwards = msg.createReactionCollector(backwardsFilter, { time: 0 });/// </>~M̲e Ȼodes ᶜ
-			var forwards = msg.createReactionCollector(forwardsFilter, { time: 0 });/// </>~M̲e Ȼodes ᶜ
+		var backwards = msg.createReactionCollector(backwardsFilter, { time: 0 });///shuruhatik
+			var forwards = msg.createReactionCollector(forwardsFilter, { time: 0 });///shuruhatik
 
 		var sbackwards = msg.createReactionCollector(sbackwardsFilter, { time: 0 });
-			var sforwards = msg.createReactionCollector(sforwardsFilter, { time: 0 });/// </>~M̲e Ȼodes ᶜ
+			var sforwards = msg.createReactionCollector(sforwardsFilter, { time: 0 });//shuruhatik
 
-			var cancel = msg.createReactionCollector(cancelFilter, { time: 0 });/// </>~M̲e Ȼodes ᶜ
+			var cancel = msg.createReactionCollector(cancelFilter, { time: 0 });///shuruhatik
 
-			backwards.on('collect', r => {/// </>~M̲e Ȼodes ᶜ
+			backwards.on('collect', r => {///shuruhatik
 				if (page === 1) return;
 				page--;
-				embed.setImage(pages[page-1]);/// </>~M̲e Ȼodes ᶜ
-				embed.setFooter(`كيف تحمي نفسك والآخرين من المرض صفحة رقم ${page} من اصل ${pages.length} صفحة`, 'https://cdn.discordapp.com/avatars/439427357175185408/b484f58b385cd3da5799522c52111ad4.jpg?size=128');
+				embed.setImage(pages[page-1]);///shuruhatik
+				embed.setFooter(`كيف تحمي نفسك والآخرين من المرض صفحة رقم ${page} من اصل ${pages.length} صفحة`, 'http://www.emro.who.int/images/stories/coronavirus/corona-virus.png');
 				msg.edit(embed)
 			})
 			forwards.on('collect', r => {
-				if (page === pages.length) return;/// </>~M̲e Ȼodes ᶜ
+				if (page === pages.length) return;///shuruhatik
 				page++;
-				embed.setImage(pages[page-1]);/// </>~M̲e Ȼodes ᶜ
-				embed.setFooter(`كيف تحمي نفسك والآخرين من المرض صفحة رقم ${page} من اصل ${pages.length} صفحة`, 'https://cdn.discordapp.com/avatars/439427357175185408/b484f58b385cd3da5799522c52111ad4.jpg?size=128');
+				embed.setImage(pages[page-1]);//shuruhatik
+				embed.setFooter(`كيف تحمي نفسك والآخرين من المرض صفحة رقم ${page} من اصل ${pages.length} صفحة`, 'http://www.emro.who.int/images/stories/coronavirus/corona-virus.png');
 				msg.edit(embed)
 			})
-			sbackwards.on('collect', r => {/// </>~M̲e Ȼodes ᶜ
+			sbackwards.on('collect', r => {///shuruhatik
 				if (page === 1) return;
 				page = 1;
 				embed.setImage(pages[page-1]);
-				embed.setFooter(`القراآن الكريم | صفحة رقم ${page} من اصل ${pages.length} صفحة`, 'https://cdn.discordapp.com/avatars/439427357175185408/b484f58b385cd3da5799522c52111ad4.jpg?size=128');
+				embed.setFooter(`كيف تحمي نفسك والآخرين من المرض صفحة رقم ${page} من اصل ${pages.length} صفحة`, 'http://www.emro.who.int/images/stories/coronavirus/corona-virus.png');
 				msg.edit(embed)
 			})
 			sforwards.on('collect', r => {
-				if (page === pages.length) return;/// </>~M̲e Ȼodes ᶜ
+				if (page === pages.length) return;///shuruhatik
 				page = 5; // إذا تبي تكمل ل 600 صفحة غير الرقم للصفحة الي وصلت لها/// </>~M̲e Ȼodes ᶜ
 				embed.setImage(pages[page-1]);
-				embed.setFooter(`القراآن الكريم | صفحة رقم ${page} من اصل ${pages.length} صفحة`, 'https://cdn.discordapp.com/avatars/439427357175185408/b484f58b385cd3da5799522c52111ad4.jpg?size=128');
+				embed.setFooter(`كيف تحمي نفسك والآخرين من المرض صفحة رقم ${page} من اصل ${pages.length} صفحة`, 'http://www.emro.who.int/images/stories/coronavirus/corona-virus.png');
 				msg.edit(embed)
 			})
 			cancel.on('collect', r => {
-				embed.setDescription(`**سوف يتم إغلاق القائمة**`);/// </>~M̲e Ȼodes ᶜ
-				embed.setImage('');
-				embed.setFooter(`Menu will close after 3sec`, 'https://cdn.discordapp.com/avatars/439427357175185408/b484f58b385cd3da5799522c52111ad4.jpg?size=128');
-				msg.edit(embed).then(msg.delete(3000));/// </>~M̲e Ȼodes ᶜ
+				embed.setDescription(`**سوف يتم إغلاق القائمة**`);//shuruhatik
+				embed.setImage('https://media1.tenor.com/images/3f8b9aec89d8fc5395f3ad3d82f0d697/tenor.gif?itemid=14560182');
+				embed.setFooter(`Menu will close after 8sec`, 'http://www.emro.who.int/images/stories/coronavirus/corona-virus.png');
+				msg.edit(embed).then(msg.delete(8000));////shuruhatik
 				})
 			})
 		})
@@ -134,6 +132,7 @@ if  (message.content.toLowerCase().startsWith(prefix + "corona"))  {
 });
 function corona(country, message) {
 const fetch = require("node-fetch");
+	message.delete();
 fetch(`https://disease.sh/v3/covid-19/countries/${country}`)
   .then(async data => {
   data = await data.json();
