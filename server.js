@@ -57,7 +57,8 @@ if(message.content === prefix + 'corona' || message.content === prefix + 'كور
 
 	var embed = new Discord.RichEmbed()
 	.setColor('AQUA')
-	.setFooter(`كيف تحمي نفسك والآخرين من المرض صفحة رقم ${page} من اصل ${pages.length} صفحة`, 'https://cdn.discordapp.com/avatars/439427357175185408/b484f58b385cd3da5799522c52111ad4.jpg?size=128')
+  .setTitle("**كيف تحمي نفسك والآخرين من المرض : الرسوم التوضيحية**")
+	.setFooter(`صفحة رقم ${page} من اصل ${pages.length} صفحة`, 'http://www.emro.who.int/images/stories/coronavirus/corona-virus.png')
 	.setImage(pages[page-1])
 
 	message.channel.sendEmbed(embed).then(msg => {////shuruhatik
@@ -88,35 +89,35 @@ if(message.content === prefix + 'corona' || message.content === prefix + 'كور
 				if (page === 1) return;
 				page--;
 				embed.setImage(pages[page-1]);///shuruhatik
-				embed.setFooter(`كيف تحمي نفسك والآخرين من المرض صفحة رقم ${page} من اصل ${pages.length} صفحة`, 'http://www.emro.who.int/images/stories/coronavirus/corona-virus.png');
+				embed.setFooter(`صفحة رقم ${page} من اصل ${pages.length} صفحة`, 'http://www.emro.who.int/images/stories/coronavirus/corona-virus.png');
 				msg.edit(embed)
 			})
 			forwards.on('collect', r => {
 				if (page === pages.length) return;///shuruhatik
 				page++;
 				embed.setImage(pages[page-1]);//shuruhatik
-				embed.setFooter(`كيف تحمي نفسك والآخرين من المرض صفحة رقم ${page} من اصل ${pages.length} صفحة`, 'http://www.emro.who.int/images/stories/coronavirus/corona-virus.png');
+				embed.setFooter(`صفحة رقم ${page} من اصل ${pages.length} صفحة`, 'http://www.emro.who.int/images/stories/coronavirus/corona-virus.png');
 				msg.edit(embed)
 			})
 			sbackwards.on('collect', r => {///shuruhatik
 				if (page === 1) return;
 				page = 1;
 				embed.setImage(pages[page-1]);
-				embed.setFooter(`كيف تحمي نفسك والآخرين من المرض صفحة رقم ${page} من اصل ${pages.length} صفحة`, 'http://www.emro.who.int/images/stories/coronavirus/corona-virus.png');
+				embed.setFooter(`صفحة رقم ${page} من اصل ${pages.length} صفحة`, 'http://www.emro.who.int/images/stories/coronavirus/corona-virus.png');
 				msg.edit(embed)
 			})
 			sforwards.on('collect', r => {
 				if (page === pages.length) return;///shuruhatik
 				page = 5; // إذا تبي تكمل ل 600 صفحة غير الرقم للصفحة الي وصلت لها/// </>~M̲e Ȼodes ᶜ
 				embed.setImage(pages[page-1]);
-				embed.setFooter(`كيف تحمي نفسك والآخرين من المرض صفحة رقم ${page} من اصل ${pages.length} صفحة`, 'http://www.emro.who.int/images/stories/coronavirus/corona-virus.png');
+				embed.setFooter(`صفحة رقم ${page} من اصل ${pages.length} صفحة`, 'http://www.emro.who.int/images/stories/coronavirus/corona-virus.png');
 				msg.edit(embed)
 			})
 			cancel.on('collect', r => {
 				embed.setDescription(`**سوف يتم إغلاق القائمة**`);//shuruhatik
 				embed.setImage('https://media1.tenor.com/images/3f8b9aec89d8fc5395f3ad3d82f0d697/tenor.gif?itemid=14560182');
-				embed.setFooter(`Menu will close after 8sec`, 'http://www.emro.who.int/images/stories/coronavirus/corona-virus.png');
-				msg.edit(embed).then(msg.delete(8000));////shuruhatik
+				embed.setFooter(`Menu will close after 7sec`, 'http://www.emro.who.int/images/stories/coronavirus/corona-virus.png');
+				msg.edit(embed).then(msg.delete(7500));////shuruhatik
 				})
 			})
 		})
