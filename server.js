@@ -23,6 +23,8 @@ const simpleytapi = require('simple-youtube-api')
 const moment = require("moment");
 const fs = require('fs');
 const pretty = require("pretty-ms");
+const prefix = process.env.PREFIX;
+const shuruhatik = process.env.PROJECT_BY_SHURUHATIK;
 client.login(process.env.BOT_TOKEN);
 const queue = new Map();
 var table = require('table').table
@@ -37,8 +39,7 @@ client.on('ready', () => {
 - [       All Copy Right Reserved For: Shuruhatik  in YT     ] -
 
 */
-const prefix = process.env.PREFIX;
-const shuruhatik = process.env.PROJECT_BY_SHURUHATIK;
+
 
 
 client.on('ready', () => {
