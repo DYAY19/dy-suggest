@@ -38,6 +38,7 @@ client.on('ready', () => {
 
 */
 const prefix = process.env.PREFIX;
+const shuruhatik = process.env.PROJECT_BY_SHURUHATIK;
 
 
 client.on('ready', () => {
@@ -139,7 +140,7 @@ fetch(`https://disease.sh/v3/covid-19/countries/${country}`)
   data = await data.json();
   let corona = new Discord.RichEmbed().setColor("RANDOM")
     .setThumbnail(data.countryInfo.flag)
-    .setTitle(`إحصائيات كورونا في : ${data.country}`)
+    .setTitle(`${shuruhatik} : ${data.country}`)
     .addField("`اصابات`", [`**${data.cases}**`] , true)
     .addField("`اموات`", [`**${data.deaths}**`] , true)
     .addField("`معافي`", [`**${data.recovered}**`] , true)
