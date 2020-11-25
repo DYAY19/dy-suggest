@@ -108,7 +108,7 @@ if(message.content === prefix + 'corona' || message.content === prefix + 'كور
 			})
 			sforwards.on('collect', r => {
 				if (page === pages.length) return;///shuruhatik
-				page = 5; // إذا تبي تكمل ل 600 صفحة غير الرقم للصفحة الي وصلت لها/// </>~M̲e Ȼodes ᶜ
+				page = 5; //shuruhatik
 				embed.setImage(pages[page-1]);
 				embed.setFooter(`صفحة رقم ${page} من اصل ${pages.length} صفحة`, 'http://www.emro.who.int/images/stories/coronavirus/corona-virus.png');
 				msg.edit(embed)
