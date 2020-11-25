@@ -47,25 +47,84 @@ client.on('ready', () => {
     client.user.setActivity(`Type ${prefix}corona`,{type: 'Playing'}); ///التعديل علي البلاينج
 });
 
-client.on('message', message => {
-    if (message.content.startsWith("$help")) {
-    message.channel.send({
-        embed: new Discord.RichEmbed()
-            .setAuthor(client.user.username,client.user.avatarURL)
-            .setThumbnail("https://i.pinimg.com/originals/99/bc/bc/99bcbc6ff6b449762e409c421c30dd1b.gif")
-            .setColor('RANDOM')
-            .setTitle('**كيف ينتشر فيروس كورونا؟**')
-  .setDescription(`
-أظهرت البيانات أنه الفيروس المسبب لكوفيد 19 ينتشر من شخص لآخر من خلال المخالطة اللصيقة (ضمن 6 أقدام، أو 2 متر). 
-وينتشر الفيروس عن طريق الرذاذ التنفسي المنطلق عندما يسعل المصاب بالفيروس أو يعطس أو يتحدث. يمكن استنشاق هذا الرذاذ أو دخوله في فم أو أنف شخص قريب.
-يمكن أحيانًا أن ينتشر فيروس كوفيد 19 عند تعرض الشخص لقُطَيْرات صغيرة تبقى عالقة في الهواء لعدة دقائق أو ساعات، ويسمى ذلك الانتقال بالهواء. من غير المعروف حتى الآن مدى شيوع انتشار الفيروس بهذه الطريقة.
-ويمكن أن ينتقل أيضًا إذا لمس الشخص سطحًا عليه الفيروس ثم لَمَسَ فمه أو أنفه أو عينيه، مع أن هذه ليست الطريقة الرئيسية لانتقاله.
 
+client.on('message', message => { 
+if(message.content === prefix + 'مصحف' || message.content === prefix + 'ms7f') {
+	var pages = ['http://www.emro.who.int/images/stories/coronavirus/isolate_ar_lar.png?ua=10','http://www.emro.who.int/images/stories/coronavirus/overall_ar_lar.png?ua=1','http://www.emro.who.int/images/stories/coronavirus/foodsafetychoppingboard_ar_lar.png?ua=1','http://www.emro.who.int/images/stories/coronavirus/handwash_ar_lar.png?ua=1','http://www.emro.who.int/images/stories/coronavirus/coronavirus_drugs.png?ua=1']
+	var page = 1;
 
-`)
-    })
-}
-});
+	message.delete();
+
+	var embed = new Discord.RichEmbed()
+	.setColor('#264d00')
+	.setFooter(`كيف تحمي نفسك والآخرين من المرض صفحة رقم ${page} من اصل ${pages.length} صفحة`, 'https://cdn.discordapp.com/avatars/439427357175185408/b484f58b385cd3da5799522c52111ad4.jpg?size=128')
+	.setImage(pages[page-1])
+
+// ${page}
+// ${pages.length}
+	message.channel.sendEmbed(embed).then(msg => {/// </>~M̲e Ȼodes ᶜ
+
+		msg.react('⏮').then( r => {
+			msg.react('⬅')
+		.then(() => msg.react('⏹'))/// </>~M̲e Ȼodes ᶜ
+		.then(() => msg.react('➡'))/// </>~M̲e Ȼodes ᶜ
+		.then(() => msg.react('⏭'))/// </>~M̲e Ȼodes ᶜ
+
+		var backwardsFilter = (reaction, user) => reaction.emoji.name === '⬅' && user.id === message.author.id;
+			var forwardsFilter = (reaction, user) => reaction.emoji.name === '➡' && user.id === message.author.id;
+
+			var sbackwardsFilter = (reaction, user) => reaction.emoji.name === '⏮' && user.id === message.author.id;
+			var sforwardsFilter = (reaction, user) => reaction.emoji.name === '⏭' && user.id === message.author.id;
+
+			var cancelFilter = (reaction, user) => reaction.emoji.name === '⏹' && user.id === message.author.id;
+
+		var backwards = msg.createReactionCollector(backwardsFilter, { time: 0 });/// </>~M̲e Ȼodes ᶜ
+			var forwards = msg.createReactionCollector(forwardsFilter, { time: 0 });/// </>~M̲e Ȼodes ᶜ
+
+		var sbackwards = msg.createReactionCollector(sbackwardsFilter, { time: 0 });
+			var sforwards = msg.createReactionCollector(sforwardsFilter, { time: 0 });/// </>~M̲e Ȼodes ᶜ
+
+			var cancel = msg.createReactionCollector(cancelFilter, { time: 0 });/// </>~M̲e Ȼodes ᶜ
+
+			backwards.on('collect', r => {/// </>~M̲e Ȼodes ᶜ
+				if (page === 1) return;
+				page--;
+				embed.setImage(pages[page-1]);/// </>~M̲e Ȼodes ᶜ
+				embed.setFooter(`كيف تحمي نفسك والآخرين من المرض صفحة رقم ${page} من اصل ${pages.length} صفحة`, 'https://cdn.discordapp.com/avatars/439427357175185408/b484f58b385cd3da5799522c52111ad4.jpg?size=128');
+				msg.edit(embed)
+			})
+			forwards.on('collect', r => {
+				if (page === pages.length) return;/// </>~M̲e Ȼodes ᶜ
+				page++;
+				embed.setImage(pages[page-1]);/// </>~M̲e Ȼodes ᶜ
+				embed.setFooter(`كيف تحمي نفسك والآخرين من المرض صفحة رقم ${page} من اصل ${pages.length} صفحة`, 'https://cdn.discordapp.com/avatars/439427357175185408/b484f58b385cd3da5799522c52111ad4.jpg?size=128');
+				msg.edit(embed)
+			})
+			sbackwards.on('collect', r => {/// </>~M̲e Ȼodes ᶜ
+				if (page === 1) return;
+				page = 1;
+				embed.setImage(pages[page-1]);
+				embed.setFooter(`القراآن الكريم | صفحة رقم ${page} من اصل ${pages.length} صفحة`, 'https://cdn.discordapp.com/avatars/439427357175185408/b484f58b385cd3da5799522c52111ad4.jpg?size=128');
+				msg.edit(embed)
+			})
+			sforwards.on('collect', r => {
+				if (page === pages.length) return;/// </>~M̲e Ȼodes ᶜ
+				page = 5; // إذا تبي تكمل ل 600 صفحة غير الرقم للصفحة الي وصلت لها/// </>~M̲e Ȼodes ᶜ
+				embed.setImage(pages[page-1]);
+				embed.setFooter(`القراآن الكريم | صفحة رقم ${page} من اصل ${pages.length} صفحة`, 'https://cdn.discordapp.com/avatars/439427357175185408/b484f58b385cd3da5799522c52111ad4.jpg?size=128');
+				msg.edit(embed)
+			})
+			cancel.on('collect', r => {
+				embed.setDescription(`**سوف يتم إغلاق القائمة**`);/// </>~M̲e Ȼodes ᶜ
+				embed.setImage('');
+				embed.setFooter(`Menu will close after 3sec`, 'https://cdn.discordapp.com/avatars/439427357175185408/b484f58b385cd3da5799522c52111ad4.jpg?size=128');
+				msg.edit(embed).then(msg.delete(3000));/// </>~M̲e Ȼodes ᶜ
+				})
+			})
+		})
+	}
+	});
+
 
 client.on('message', message => {
 if  (message.content.toLowerCase().startsWith(prefix + "corona"))  {
