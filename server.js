@@ -59,7 +59,8 @@ if(message.content === prefix + 'corona' || message.content === prefix + 'كور
 
 	var embed = new Discord.RichEmbed()
 	.setColor('AQUA')
-  .setTitle("**كيف تحمي نفسك والآخرين من المرض : الرسوم التوضيحية**")
+  .setAuthor("كيف تحمي نفسك والآخرين من المرض : الرسوم التوضيحية")
+  .setTitle("${prefix}corona [اسم البلد] | لمعرفة احصائيات كورونا ")
 	.setFooter(`صفحة رقم ${page} من اصل ${pages.length} صفحة`, 'http://www.emro.who.int/images/stories/coronavirus/corona-virus.png')
 	.setImage(pages[page-1])
 
