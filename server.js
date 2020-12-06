@@ -56,7 +56,6 @@ message.channel.send(embed).then(msg => {
 }
 });
 
-
 /*
 
 - [       All Copy Right Reserved For: Shuruhatik  in YT     ] -
