@@ -29,7 +29,7 @@ client.on('ready', () => {
     console.log(`Iam Ready`);
     console.log(`Guilds: ${client.guilds.cache.size}`);
     console.log(`Users: ${client.users.cache.size}`);
-    client.user.setActivity(`Type ${prefix}corona`,{type: 'Playing'}); ///التعديل علي البلاينج
+    client.user.setActivity(`text`,{type: 'Playing'}); ///التعديل علي البلاينج
 });
 
 
