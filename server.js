@@ -37,7 +37,7 @@ client.on('ready', () => {
 client.on('message', function(message) {
 let args = message.content.split(" ").slice('').join(" ");
 if(message.author.bot)return;
-const sugch = message.channel.id === "784874845359177748"
+const sugch = message.channel.id === "755605209476104362"
 if (!sugch) return false;
 if(message.content.startsWith('')){
   message.delete()
