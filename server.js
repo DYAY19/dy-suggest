@@ -49,8 +49,8 @@ const embed = new Discord.MessageEmbed()
 .setFooter(`اقتراح من | ${message.author.id}`)
 .setTimestamp()
 message.channel.send(embed).then(msg => {
-  msg.react('👍').then( r => {
-    msg.react('👎')
+  msg.react('784039315751436329').then( r => {
+    msg.react('784039316099432488')
   })
 })
 }
